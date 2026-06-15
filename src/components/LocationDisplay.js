@@ -1,0 +1,1 @@
+export { LocationDisplay as default } from './index';

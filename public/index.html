@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#DC2626" />
+    <meta name="description" content="RescueNow - Emergency Response System. Find nearest hospitals, police stations, and trauma centres instantly." />
+
+    <!-- PWA Meta Tags -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="RescueNow" />
+    <meta name="msapplication-TileColor" content="#DC2626" />
+    <meta name="msapplication-tap-highlight" content="no" />
+
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icons/icon-192x192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+
+    <title>RescueNow — Emergency Response</title>
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { height: 100%; }
+      body {
+        height: 100%;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        background: #0F172A;
+        color: #F8FAFC;
+        overscroll-behavior: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+      #root { height: 100%; }
+      /* Prevent FOUC */
+      .app-splash {
+        position: fixed; inset: 0;
+        background: #0F172A;
+        display: flex; align-items: center; justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.3s;
+      }
+      .app-splash.hidden { opacity: 0; pointer-events: none; }
+      .splash-logo {
+        width: 80px; height: 80px;
+        background: #DC2626;
+        border-radius: 20px;
+        display: flex; align-items: center; justify-content: center;
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+      .splash-logo svg { width: 44px; height: 44px; fill: white; }
+      @keyframes pulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(220,38,38,0.4); }
+        50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(220,38,38,0); }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div class="app-splash" id="splash">
+      <div class="splash-logo">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+        </svg>
+      </div>
+    </div>
+    <div id="root"></div>
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const splash = document.getElementById('splash');
+          if (splash) splash.classList.add('hidden');
+        }, 800);
+
+        if ('serviceWorker' in navigator) {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('[PWA] Service Worker registered:', reg.scope))
+            .catch(err => console.error('[PWA] SW registration failed:', err));
+        }
+      });
+    </script>
+  </body>
+</html>

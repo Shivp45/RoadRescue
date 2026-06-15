@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Apollo Hospital",
+    "type": "hospital",
+    "lat": 18.5204,
+    "lng": 73.8567,
+    "phone": "020123456"
+  },
+  {
+    "name": "Ruby Hall Clinic",
+    "type": "hospital",
+    "lat": 18.5300,
+    "lng": 73.8700,
+    "phone": "020654321"
+  }
+]

@@ -1,0 +1,64 @@
+{
+  "short_name": "RescueNow",
+  "name": "RescueNow - Emergency Response System",
+  "description": "Find nearest hospitals, police stations, and trauma centres instantly during emergencies",
+  "icons": [
+    {
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#DC2626",
+  "background_color": "#0F172A",
+  "orientation": "portrait",
+  "categories": ["emergency", "medical", "utilities"],
+  "shortcuts": [
+    {
+      "name": "SOS Alert",
+      "short_name": "SOS",
+      "description": "Send emergency alert",
+      "url": "/?action=sos",
+      "icons": [{ "src": "icons/sos-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Find Hospital",
+      "short_name": "Hospital",
+      "url": "/?filter=hospital",
+      "icons": [{ "src": "icons/hospital-96x96.png", "sizes": "96x96" }]
+    }
+  ]
+}
